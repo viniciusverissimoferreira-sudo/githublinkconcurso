@@ -1,0 +1,291 @@
+/* =========================================================================
+PINTURA E LAYOUT DO ECODASH (Estilos Puros - Vanilla CSS)
+========================================================================= */
+
+/* --- 1. VARIÁVEIS DO SITE ---
+Guardamos as cores do projeto em 'gavetas' para usar facilmente depois. */
+:root {
+    --bg-dark: #0f172a; /* Fundo escuro azulado */
+    --bg-card: rgba(30, 41, 59, 0.6); /* Fundo semitransparente para o efeito vidro */
+    --text-main: #f8fafc; /* Letra clara principal */
+    --text-muted: #94a3b8; /* Letra cinza suave */
+    --primary-color: #10b981; /* Verde Sustentável */
+    --primary-hover: #059669; /* Verde mais escuro para o botão */
+    --secondary-color: #3b82f6; /* Azul Tecnológico */
+    --accent-color: #8b5cf6; /* Roxo decorativo */
+    --font-main: 'Outfit', sans-serif;
+    --border-radius: 16px;
+    --glass-border: 1px solid rgba(255, 255, 255, 0.08); /* Borda fininha de vidro */
+    --transition: all 0.3s ease; /* Faz as animações durarem 0.3 segundos */
+}
+
+/* --- 2. CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garante que tamanhos e margens fiquem certinhos */
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita que o site crie barra de rolagem para os lados */
+    position: relative;
+    line-height: 1.6;
+}
+
+/* --- 3. EFEITOS DE BRILHO (WOW) ---
+Criamos duas bolhas gigantes desfocadas que ficam flutuando no fundo do site. */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Joga os brilhos para trás de todo o conteúdo */
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px); /* Deixa a borda super macia e borrada */
+    opacity: 0.3; /* Deixa o brilho bem suave no fundo */
+}
+
+.glow-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary-color);
+    top: -100px;
+    left: -100px;
+    animation: float 10s infinite alternate ease-in-out; /* Faz flutuar */
+}
+
+.glow-2 {
+    width: 500px;
+    height: 500px;
+    background: var(--secondary-color);
+    bottom: -150px;
+    right: -100px;
+    animation: float 12s infinite alternate-reverse ease-in-out;
+}
+
+/* --- 4. BARRA DO MENU --- */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Afasta o logotipo dos links */
+    align-items: center;
+    padding: 20px 8%;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px); /* Efeito vidro borrado no menu */
+    border-bottom: var(--glass-border);
+    position: sticky; /* Cola o menu no topo quando você rola a página */
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+/* Texto em degradê - CORRIGIDO */
+.text-gradient {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color); /* Fica verde quando passa o mouse */
+}
+
+/* --- 5. COMPONENTES E BOTÕES --- */
+main {
+    padding: 40px 5%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px); /* Sobe um pouquinho */
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+.btn-secondary {
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    color: white;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+    filter: brightness(1.1); /* Brilha um pouco mais */
+    transform: translateY(-2px);
+}
+
+/* Efeito de Vidro do Card */
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+}
+
+/* --- 6. FORMULÁRIOS --- */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    border-color: var(--primary-color); /* Borda fica verde ao clicar */
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* --- 7. CAIXA DE RESULTADOS --- */
+.result-box {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(16, 185, 129, 0.06);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+}
+
+.result-box.hidden {
+    display: none; /* Deixa invisível */
+}
+
+.result-grid {
+    display: flex;
+    justify-content: space-between; /* Separa valor e status */
+    margin-top: 15px;
+    gap: 20px;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.result-item .label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.result-item .value {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.action-message {
+    margin-top: 15px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 10px;
+}
+
+/* --- 8. ANIMAÇÕES --- */
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(20px); }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s forwards ease-out;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- 9. RESPONSIVIDADE (Celular) ---
+Se a tela for menor que 768 pixels de largura (tamanho de celular), aplicamos estas regras */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 5%;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem; /* Letras menores para caber na tela do celular */
+    }
+    
+    .nav-links {
+        display: none; /* Esconde os links do menu para não embolar */
+    }
+    
+    .glass-card {
+        padding: 24px 20px;
+    }
+    
+    .result-grid {
+        flex-direction: column; /* Coloca um resultado abaixo do outro */
+        gap: 15px;
+    }
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Configurações básicas para o navegador entender letras com acentos (á, ç,
+õ) -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EcoDash - Simulador de Carbono Agrinho 2026</title>
+<!-- PUXE DO GOOGLE FONTS: Importa uma fonte moderna e profissional -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?
+family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<!-- O PUXE DO ESTILO (CSS): Diz para o HTML onde as cores e posições estão -->
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<!-- Duas bolas de luz coloridas que vão flutuar no fundo do site -->
+<div class="background-effects">
+<div class="glow glow-1"></div>
+<div class="glow glow-2"></div>
+</div>
+<!-- Barra de Navegação (Menu superior do site) -->
+<header class="navbar">
+<div class="logo">
+<!-- A classe 'text-gradient' deixará o nome do site com efeito degradê
+verde e azul -->
+<span class="text-gradient">EcoDash</span>
+</div>
+<nav class="nav-links">
+<a href="#home">Início</a>
+<a href="#simulador">Simulador</a>
+<a href="#sobre">Sobre o Projeto</a>
+</nav>
+</header>
+<main>
+<!-- Seção de Acolhimento (Apresentação / Hero) -->
+<section id="home" class="hero fade-in">
+<h1 class="hero-title">O Futuro Sustentável<br>Começa <span
+class="text-gradient">Aqui.</span></h1>
+<p class="hero-subtitle">Calcule sua pegada de carbono e descubra como
+pequenos hábitos ajudam no equilíbrio ecológico.</p>
+<a href="#simulador" class="btn btn-primary">Iniciar Simulação</a>
+</section>
+<!-- Seção do Simulador (Onde fica a calculadora) -->
+<section id="simulador" class="simulator-section fade-in delay-1">
+<!-- 'glass-card' cria um efeito de cartão de vidro translúcido -->
+<div class="glass-card">
+<h2>Calculadora de Carbono</h2>
+<p>Preencha os dados de consumo mensal de sua residência:</p>
+<!-- Formulário de dados. O ID 'carbon-form' será usado pelo
+JavaScript -->
+<form id="carbon-form">
+<!-- Grupo 1: Energia -->
+<div class="input-group">
+<label for="energy">Energia Elétrica (kWh/mês):</label>
+<input type="number" id="energy" required placeholder="Ex:
+
+150" min="0">
+</div>
+<!-- Grupo 2: Combustível -->
+<div class="input-group">
+<label for="transport">Combustível / Transporte (Litros de
+Gasolina/mês):</label>
+<input type="number" id="transport" required
+placeholder="Ex: 50" min="0">
+</div>
+<!-- Grupo 3: Lixo -->
+<div class="input-group">
+<label for="waste">Resíduos Não-Recicláveis (Lixo Comum em
+Kg/mês):</label>
+<input type="number" id="waste" required placeholder="Ex:
+15" min="0">
+</div>
+<!-- Botão de submeter o cálculo -->
+
+<button type="submit" id="calculate-btn" class="btn btn-
+secondary">Calcular Impacto</button>
+
+</form>
+<!-- Caixa de Resultados: A classe 'hidden' faz ela ficar invisível
+no início -->
+<div id="result-container" class="result-box hidden">
+<h3>Seu Impacto Ambiental</h3>
+<div class="result-grid">
+<div class="result-item">
+<span class="label">Pegada Total:</span>
+<span class="value" id="total-footprint">0 kg
+
+CO2</span>
+</div>
+
+<div class="result-item">
+
+<span class="label">Status:</span>
+
+<span class="value" id="status-message">-</span>
+
+</div>
+</div>
+<!-- Dica ecológica gerada pelo JavaScript -->
+<div class="action-message" id="action-tip"></div>
+</div>
+</div>
+</section>
+<!-- Seção explicativa sobre o Concurso Agrinho -->
+<section id="sobre" class="about-section fade-in delay-2">
+    <div class="glass-card">
+        <h2>Projeto Agrinho 2026</h2>
+        <p>Este site foi desenvolvido para incentivar a sustentabilidade na
+        comunidade escolar, mostrando de forma simples a relação entre o consumo diário e a
+        emissão de gases de efeito estufa. O agro forte protege o meio ambiente!</p>
+        <div class="credits">
+        <p><strong>Desenvolvedores:</strong> [Coloque Seu Nome Aqui]
+        </p>
+        <p><strong>Escola:</strong> [Coloque o Nome da Sua Escola]</p>
+        </div>
+        </div>
+        </section>
+        </main>
+        <!-- Rodapé -->
+        <footer>
+        <p>&copy; 2026 EcoDash - Concurso Agrinho. Rede Estadual do Paraná.</p>
+        </footer>
+        <!-- O PUXE DO CÉREBRO (JS): Conecta a inteligência matemática ao HTML -->
+        <script src="./js/main.js"></script>
+        </body>
+        </html>
